@@ -205,8 +205,10 @@ Opção de uso:
 ```
     model = DecisionTreeClassifier(random_state=42)
 
+    # Treinando o modelo
     model.fit(X_train, y_train)
-
+    
+    # acurácia do modelo em relação ao conjunto de dados de treinamento (X_train e y_train)
     model.score(X_train,y_train)
 ```
 0.9789325842696629
@@ -226,26 +228,31 @@ Opção de uso:
 <img src="./media/image-7.png" alt="alt text"/>
 
 **True Negatives (TN): 85** - O modelo previu corretamente que 85 passageiros não sobreviveriam.
+
 **False Positives (FP): 20** - O modelo previu incorretamente que 20 passageiros não sobreviveriam, quando na verdade sobreviveram.
+
 **False Negatives (FN): 18** - O modelo previu incorretamente que 18 passageiros sobreviveriam, quando na verdade não sobreviveram.
+
 **True Positives (TP): 56** - O modelo previu corretamente que 56 passageiros sobreviveriam.
 
 #### Relatório de Classificação
 ```
     print(classification_report(y_test, y_pred))
 ```
-              precision    recall  f1-score   support
-
-           0       0.83      0.81      0.82       105
-           1       0.74      0.76      0.75        74
-
-    accuracy                           0.79       179
-   macro avg       0.78      0.78      0.78       179
-weighted avg       0.79      0.79      0.79       179
+|           | precision | recall | f1-score | support |
+|-----------|-----------|--------|----------|---------|
+|     0     |    0.83   |  0.81  |   0.82   |   105   |
+|     1     |    0.74   |  0.76  |   0.75   |    74   |
+| accuracy   |           |        |   0.79   |   179   |
+| macro avg  |    0.78   |  0.78  |   0.78   |   179   |
+| weighted avg|   0.79   |  0.79  |   0.79   |   179   |
 
 
 **Precisão (Precision):** A proporção de verdadeiros positivos sobre o total de positivos previstos. Uma precisão de 0.83 para a classe 0 indica que 83% das previsões de não sobrevivência estavam corretas.
+
 **Recuperação (Recall):** A proporção de verdadeiros positivos sobre o total de positivos reais. Uma recuperação de 0.76 para a classe 1 indica que o modelo identificou 76% dos sobreviventes corretamente.
+
 **F1-Score:** A média harmônica de precisão e recuperação. É uma boa métrica quando há um desbalanceamento entre classes.
+
 **Acurácia:** A proporção de previsões corretas em relação ao total de previsões. Neste caso, a acurácia foi de 0.79, ou seja, 79% das previsões estavam corretas.
 
